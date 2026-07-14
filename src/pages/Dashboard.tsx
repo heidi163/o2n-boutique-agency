@@ -34,7 +34,7 @@ export default function Dashboard() {
         <div>
           <h1 className="text-3xl font-medium text-[#154A37] leading-tight mb-2 font-display">Dashboard</h1>
           <p className="text-[#6B6B6B]">
-            Welcome back, {user?.name?.split(' ')[0]}. You have <span className="text-[#154A37] font-semibold">{tasks.filter((t: any) => t.status !== 'DONE').length} tasks</span> remaining.
+            Welcome back, {user?.name?.split(' ')[0]}. You have <span className="text-[#154A37] font-normal">{tasks.filter((t: any) => t.status !== 'DONE').length} tasks</span> remaining.
           </p>
         </div>
         <div className="flex gap-4">
@@ -50,15 +50,15 @@ export default function Dashboard() {
         <div className="lg:col-span-2 space-y-8">
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm">
-              <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-semibold">Total Tasks</p>
+              <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-normal">Total Tasks</p>
               <h3 className="text-2xl font-medium text-[#154A37]">{totalTasks}</h3>
             </div>
             <div className="bg-[#154A37] p-6 rounded-3xl border border-[#154A37] shadow-sm">
-              <p className="text-xs uppercase tracking-widest text-white/70 mb-2 font-semibold">Completed</p>
+              <p className="text-xs uppercase tracking-widest text-white/70 mb-2 font-normal">Completed</p>
               <h3 className="text-2xl font-medium text-white">{completionRate}%</h3>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm">
-              <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-semibold">Active Projects</p>
+              <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-normal">Active Projects</p>
               <h3 className="text-2xl font-medium text-[#154A37]">{activeProjects}</h3>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Dashboard() {
           <div className="bg-white rounded-[2.5rem] border border-[#E8E2D9] p-8">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-lg font-medium font-display">Active Projects</h2>
-              <button className="text-sm font-semibold text-[#154A37] underline underline-offset-4">View All</button>
+              <button className="text-sm font-normal text-[#154A37] underline underline-offset-4">View All</button>
             </div>
             
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export default function Dashboard() {
               )}
               {projects.slice(0, 5).map((project: any) => (
                 <div key={project.id} className="flex items-center gap-6 p-4 rounded-3xl hover:bg-[#FDFBF7] transition-colors border border-transparent hover:border-[#E8E2D9]">
-                  <div className="w-16 h-16 bg-[#E8F2EE] rounded-2xl flex items-center justify-center text-[#154A37] font-bold text-xl uppercase">
+                  <div className="w-16 h-16 bg-[#E8F2EE] rounded-2xl flex items-center justify-center text-[#154A37] font-medium text-xl uppercase">
                     {project.name.charAt(0)}
                   </div>
                   <div className="flex-1">
@@ -83,7 +83,7 @@ export default function Dashboard() {
                     <p className="text-sm text-[#6B6B6B]">Client: {project.client?.name || 'Unknown'}</p>
                   </div>
                   <div className="text-right">
-                    <span className="px-4 py-1 bg-[#4CAF7D]/10 text-[#4CAF7D] rounded-full text-xs font-bold inline-block mb-3">
+                    <span className="px-4 py-1 bg-[#4CAF7D]/10 text-[#4CAF7D] rounded-full text-xs font-medium inline-block mb-3">
                       {project.status.replace('_', ' ')}
                     </span>
                     <div className="w-32 h-1.5 bg-[#E8E2D9] rounded-full overflow-hidden">
@@ -104,21 +104,21 @@ export default function Dashboard() {
               <div className="flex gap-4">
                 <div className="w-2 h-2 mt-2 rounded-full bg-[#5B8DEF]"></div>
                 <div className="text-sm text-[#1A1A1A]">
-                  <p className="font-semibold">Sarah M. <span className="font-normal text-[#6B6B6B]">moved</span> "Logo Concepts" <span className="font-normal text-[#6B6B6B]">to</span> Review</p>
+                  <p className="font-normal">Sarah M. <span className="font-normal text-[#6B6B6B]">moved</span> "Logo Concepts" <span className="font-normal text-[#6B6B6B]">to</span> Review</p>
                   <span className="text-[10px] text-[#A8A8A8] uppercase tracking-wide">12 Minutes Ago</span>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 mt-2 rounded-full bg-[#4CAF7D]"></div>
                 <div className="text-sm text-[#1A1A1A]">
-                  <p className="font-semibold">David W. <span className="font-normal text-[#6B6B6B]">completed</span> "Client Discovery"</p>
+                  <p className="font-normal">David W. <span className="font-normal text-[#6B6B6B]">completed</span> "Client Discovery"</p>
                   <span className="text-[10px] text-[#A8A8A8] uppercase tracking-wide">1 Hour Ago</span>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 mt-2 rounded-full bg-[#E8756A]"></div>
                 <div className="text-sm text-[#1A1A1A]">
-                  <p className="font-semibold">Ahmed K. <span className="font-normal text-[#6B6B6B]">changed deadline for</span> Vogue Pitch</p>
+                  <p className="font-normal">Ahmed K. <span className="font-normal text-[#6B6B6B]">changed deadline for</span> Vogue Pitch</p>
                   <span className="text-[10px] text-[#A8A8A8] uppercase tracking-wide">3 Hours Ago</span>
                 </div>
               </div>

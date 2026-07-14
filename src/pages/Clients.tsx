@@ -45,7 +45,7 @@ export default function Clients() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-bold text-[#154A37] leading-tight mb-2 font-display">Clients</h1>
+          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Clients</h1>
           <p className="text-[#6B6B6B]">Manage your agency's clients and their contact information.</p>
         </div>
         <div className="flex gap-4">
@@ -79,10 +79,10 @@ export default function Clients() {
             <Table>
               <TableHeader>
                 <TableRow className="border-[#E8E2D9] hover:bg-transparent">
-                  <TableHead className="text-[#6B6B6B] font-semibold">Client Name</TableHead>
-                  <TableHead className="text-[#6B6B6B] font-semibold">Company</TableHead>
-                  <TableHead className="text-[#6B6B6B] font-semibold">Contact</TableHead>
-                  <TableHead className="text-[#6B6B6B] font-semibold">Added On</TableHead>
+                  <TableHead className="text-[#6B6B6B] font-normal">Client Name</TableHead>
+                  <TableHead className="text-[#6B6B6B] font-normal">Company</TableHead>
+                  <TableHead className="text-[#6B6B6B] font-normal">Contact</TableHead>
+                  <TableHead className="text-[#6B6B6B] font-normal">Added On</TableHead>
                   <TableHead className="text-right"></TableHead>
                 </TableRow>
               </TableHeader>
@@ -96,9 +96,9 @@ export default function Clients() {
                 )}
                 {clients?.map((client: any) => (
                   <TableRow key={client.id} className="border-[#E8E2D9] hover:bg-[#FDFBF7] cursor-pointer">
-                    <TableCell className="font-semibold text-[#1A1A1A] py-4">
+                    <TableCell className="font-normal text-[#1A1A1A] py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#E8F2EE] text-[#154A37] rounded-full flex items-center justify-center font-bold">
+                        <div className="w-10 h-10 bg-[#E8F2EE] text-[#154A37] rounded-full flex items-center justify-center font-medium">
                           {client.name.charAt(0)}
                         </div>
                         {client.name}
@@ -134,7 +134,7 @@ export default function Clients() {
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Name</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Name</label>
               <Input 
                 value={formData.name} 
                 onChange={e => setFormData({...formData, name: e.target.value})} 
@@ -143,7 +143,7 @@ export default function Clients() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Email</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Email</label>
               <Input 
                 type="email" 
                 value={formData.email} 
@@ -153,7 +153,7 @@ export default function Clients() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Company</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Company</label>
               <Input 
                 value={formData.company} 
                 onChange={e => setFormData({...formData, company: e.target.value})} 
@@ -161,7 +161,7 @@ export default function Clients() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Phone</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Phone</label>
               <Input 
                 value={formData.phone} 
                 onChange={e => setFormData({...formData, phone: e.target.value})} 

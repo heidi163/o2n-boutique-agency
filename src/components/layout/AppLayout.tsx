@@ -25,8 +25,8 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       {/* Sidebar Navigation */}
       <aside className="w-64 border-r border-[#E8E2D9] flex flex-col p-8 bg-white">
         <div className="flex items-center gap-3 mb-12">
-          <div className="w-10 h-10 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-bold text-xl">O2</div>
-          <span className="text-2xl font-bold tracking-tight text-[#154A37] font-display">O2N</span>
+          <div className="w-10 h-10 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-medium text-xl">O2</div>
+          <span className="text-2xl font-medium tracking-tight text-[#154A37] font-display">O2N</span>
         </div>
         
         <nav className="flex-1 space-y-1">
@@ -98,11 +98,11 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
         <div className="mt-auto pt-4 border-t border-[#E8E2D9]">
           <div className="flex items-center gap-3 p-4 bg-[#F5F1EA] rounded-3xl mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#154A37] border-2 border-white shadow-sm flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#154A37] border-2 border-white shadow-sm flex items-center justify-center text-white font-medium text-sm">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             <div className="flex flex-col flex-1 overflow-hidden">
-              <span className="text-sm font-semibold truncate">{user?.name}</span>
+              <span className="text-sm font-normal truncate">{user?.name}</span>
               <span className="text-xs text-[#6B6B6B] truncate">{user?.jobTitle || user?.role}</span>
             </div>
           </div>

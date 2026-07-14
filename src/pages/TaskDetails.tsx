@@ -54,7 +54,7 @@ export default function TaskDetails() {
     <div className="max-w-4xl mx-auto">
       <button 
         onClick={() => navigate('/tasks')}
-        className="flex items-center gap-2 text-[#6B6B6B] hover:text-[#154A37] font-semibold mb-8 transition-colors"
+        className="flex items-center gap-2 text-[#6B6B6B] hover:text-[#154A37] font-normal mb-8 transition-colors"
       >
         <ArrowLeft className="w-5 h-5" /> Back to Tasks
       </button>
@@ -65,16 +65,16 @@ export default function TaskDetails() {
 
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
-            <span className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wide border ${getPriorityColor(task.priority)}`}>
+            <span className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wide border ${getPriorityColor(task.priority)}`}>
               <Flag className="w-3 h-3 inline-block mr-1.5 -mt-0.5" />
               {task.priority}
             </span>
-            <span className="px-4 py-1.5 rounded-full text-xs font-bold tracking-wide bg-[#F5F1EA] text-[#6B6B6B] border border-[#E8E2D9]">
+            <span className="px-4 py-1.5 rounded-full text-xs font-medium tracking-wide bg-[#F5F1EA] text-[#6B6B6B] border border-[#E8E2D9]">
               {task.status.replace('_', ' ')}
             </span>
           </div>
 
-          <h1 className="text-4xl font-bold font-display text-[#154A37] mb-4 leading-tight">{task.title}</h1>
+          <h1 className="text-4xl font-medium font-display text-[#154A37] mb-4 leading-tight">{task.title}</h1>
           
           {task.project && (
             <div className="text-[#6B6B6B] font-medium text-lg mb-8">
@@ -88,8 +88,8 @@ export default function TaskDetails() {
                 <User className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider font-bold text-[#A8A8A8] mb-1">Assignee</p>
-                <p className="font-bold text-[#1A1A1A]">{task.assignee?.name || 'Unassigned'}</p>
+                <p className="text-xs uppercase tracking-wider font-medium text-[#A8A8A8] mb-1">Assignee</p>
+                <p className="font-medium text-[#1A1A1A]">{task.assignee?.name || 'Unassigned'}</p>
               </div>
             </div>
             
@@ -98,8 +98,8 @@ export default function TaskDetails() {
                 <CalendarIcon className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider font-bold text-[#A8A8A8] mb-1">Due Date</p>
-                <p className="font-bold text-[#1A1A1A]">{task.dueDate ? format(new Date(task.dueDate), 'MMM d, yyyy') : 'No date set'}</p>
+                <p className="text-xs uppercase tracking-wider font-medium text-[#A8A8A8] mb-1">Due Date</p>
+                <p className="font-medium text-[#1A1A1A]">{task.dueDate ? format(new Date(task.dueDate), 'MMM d, yyyy') : 'No date set'}</p>
               </div>
             </div>
 
@@ -108,21 +108,21 @@ export default function TaskDetails() {
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wider font-bold text-[#A8A8A8] mb-1">Estimated</p>
-                <p className="font-bold text-[#1A1A1A]">{task.estimatedHours ? `${task.estimatedHours} hours` : 'Not set'}</p>
+                <p className="text-xs uppercase tracking-wider font-medium text-[#A8A8A8] mb-1">Estimated</p>
+                <p className="font-medium text-[#1A1A1A]">{task.estimatedHours ? `${task.estimatedHours} hours` : 'Not set'}</p>
               </div>
             </div>
           </div>
 
           <div className="mb-12">
-            <h3 className="text-xl font-bold font-display mb-4 text-[#1A1A1A]">Description</h3>
+            <h3 className="text-xl font-medium font-display mb-4 text-[#1A1A1A]">Description</h3>
             <div className="prose prose-p:text-[#6B6B6B] prose-p:leading-relaxed max-w-none">
               <p>{task.description || 'No description provided for this task.'}</p>
             </div>
           </div>
 
           <div className="mb-10">
-            <h3 className="text-xl font-bold font-display mb-6 text-[#1A1A1A] flex items-center gap-2">
+            <h3 className="text-xl font-medium font-display mb-6 text-[#1A1A1A] flex items-center gap-2">
               <CheckCircle2 className="w-6 h-6 text-[#154A37]" /> Checklist
             </h3>
             <div className="bg-[#FDFBF7] rounded-[2rem] border border-[#E8E2D9] p-6 space-y-2">
@@ -148,7 +148,7 @@ export default function TaskDetails() {
                   placeholder="Add a new checklist item..."
                   className="flex-1 bg-white border border-[#E8E2D9] rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#154A37] focus:border-transparent transition-all"
                 />
-                <button type="submit" disabled={createSubTaskMutation.isPending || !newSubTask.trim()} className="px-6 py-3 bg-[#154A37] hover:bg-[#1E6B50] text-white rounded-xl font-bold text-sm transition-colors disabled:opacity-50">
+                <button type="submit" disabled={createSubTaskMutation.isPending || !newSubTask.trim()} className="px-6 py-3 bg-[#154A37] hover:bg-[#1E6B50] text-white rounded-xl font-medium text-sm transition-colors disabled:opacity-50">
                   Add Item
                 </button>
               </form>
@@ -156,7 +156,7 @@ export default function TaskDetails() {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold font-display mb-6 text-[#1A1A1A] flex items-center gap-2">
+            <h3 className="text-xl font-medium font-display mb-6 text-[#1A1A1A] flex items-center gap-2">
               <MessageSquare className="w-6 h-6 text-[#154A37]" /> Recent Activity
             </h3>
             <div className="space-y-4">

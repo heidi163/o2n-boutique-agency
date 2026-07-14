@@ -40,11 +40,11 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7] p-4">
       <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-sm border border-[#E8E2D9]">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-12 h-12 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-bold text-2xl">O2</div>
-          <span className="text-3xl font-bold tracking-tight text-[#154A37] font-display">O2N</span>
+          <div className="w-12 h-12 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-medium text-2xl">O2</div>
+          <span className="text-3xl font-medium tracking-tight text-[#154A37] font-display">O2N</span>
         </div>
         
-        <h1 className="text-2xl font-bold text-[#1A1A1A] mb-2 font-display text-center">
+        <h1 className="text-2xl font-medium text-[#1A1A1A] mb-2 font-display text-center">
           {isLogin ? 'Welcome back' : 'Create an account'}
         </h1>
         <p className="text-[#6B6B6B] text-center text-sm mb-8">
@@ -60,7 +60,7 @@ export default function Login() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {!isLogin && (
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Full Name</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Full Name</label>
               <Input 
                 value={name} 
                 onChange={(e) => setName(e.target.value)} 
@@ -71,7 +71,7 @@ export default function Login() {
             </div>
           )}
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#1A1A1A]">Email Address</label>
+            <label className="text-sm font-normal text-[#1A1A1A]">Email Address</label>
             <Input 
               type="email" 
               value={email} 
@@ -82,7 +82,7 @@ export default function Login() {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold text-[#1A1A1A]">Password</label>
+            <label className="text-sm font-normal text-[#1A1A1A]">Password</label>
             <Input 
               type="password" 
               value={password} 

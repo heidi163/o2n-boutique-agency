@@ -116,7 +116,7 @@ export default function Tasks() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-8">
         <div>
-          <h1 className="text-5xl font-bold text-[#154A37] leading-tight mb-2 font-display">Tasks</h1>
+          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Tasks</h1>
           <p className="text-[#6B6B6B]">Drag and drop to manage your workflow.</p>
         </div>
         <div className="flex gap-4">
@@ -146,7 +146,7 @@ export default function Tasks() {
             
             return (
               <div key={col.id} className="flex-1 min-w-[320px] flex flex-col bg-[#FDFBF7] rounded-[2rem] border border-[#E8E2D9] overflow-hidden">
-                <div className={`p-5 pb-3 font-display font-bold text-lg text-[#1A1A1A] flex justify-between items-center ${col.color}`}>
+                <div className={`p-5 pb-3 font-display font-medium text-lg text-[#1A1A1A] flex justify-between items-center ${col.color}`}>
                   <div className="flex items-center gap-2">
                     {col.title}
                     <span className="text-sm font-sans font-medium px-2 py-0.5 rounded-full bg-white/50 text-[#6B6B6B]">
@@ -180,17 +180,17 @@ export default function Tasks() {
                                 style={provided.draggableProps.style}
                               >
                                 <div className="flex justify-between items-start mb-3 gap-2">
-                                  <div className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide ${getPriorityColor(task.priority)}`}>
+                                  <div className={`px-2.5 py-1 rounded-full text-[10px] font-medium tracking-wide ${getPriorityColor(task.priority)}`}>
                                     {task.priority}
                                   </div>
                                 </div>
-                                <h4 className="font-bold text-[#1A1A1A] text-lg leading-tight mb-2">{task.title}</h4>
+                                <h4 className="font-medium text-[#1A1A1A] text-lg leading-tight mb-2">{task.title}</h4>
                                 {task.description && (
                                   <p className="text-sm text-[#6B6B6B] line-clamp-2 mb-4 leading-relaxed">{task.description}</p>
                                 )}
                                 {task.project && (
                                   <div className="mt-auto pt-4 border-t border-[#F5F1EA] flex justify-between items-center">
-                                    <span className="text-xs font-semibold text-[#154A37] truncate flex-1">
+                                    <span className="text-xs font-normal text-[#154A37] truncate flex-1">
                                       {task.project.name}
                                     </span>
                                   </div>
@@ -216,10 +216,10 @@ export default function Tasks() {
             <>
               <DialogHeader className="mb-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide ${getPriorityColor(selectedTask.priority)}`}>
+                  <div className={`px-3 py-1 rounded-full text-xs font-medium tracking-wide ${getPriorityColor(selectedTask.priority)}`}>
                     {selectedTask.priority}
                   </div>
-                  <div className="px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-[#F5F1EA] text-[#6B6B6B]">
+                  <div className="px-3 py-1 rounded-full text-xs font-medium tracking-wide bg-[#F5F1EA] text-[#6B6B6B]">
                     {selectedTask.status.replace('_', ' ')}
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function Tasks() {
                   {selectedTask.title}
                 </DialogTitle>
                 {selectedTask.project && (
-                  <div className="text-sm font-semibold text-[#6B6B6B] mt-2">
+                  <div className="text-sm font-normal text-[#6B6B6B] mt-2">
                     Project: <span className="text-[#1A1A1A]">{selectedTask.project.name}</span>
                   </div>
                 )}
@@ -235,14 +235,14 @@ export default function Tasks() {
 
               <div className="space-y-8">
                 <div>
-                  <h4 className="text-sm font-bold text-[#1A1A1A] mb-2">Description</h4>
+                  <h4 className="text-sm font-medium text-[#1A1A1A] mb-2">Description</h4>
                   <p className="text-[#6B6B6B] leading-relaxed">
                     {selectedTask.description || 'No description provided.'}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-bold text-[#1A1A1A] mb-4">Subtasks</h4>
+                  <h4 className="text-sm font-medium text-[#1A1A1A] mb-4">Subtasks</h4>
                   <div className="space-y-3 mb-4">
                     {taskDetails?.subTasks?.map((st: any) => (
                       <div key={st.id} className="flex items-start gap-3 group">
@@ -280,7 +280,7 @@ export default function Tasks() {
                       <Calendar className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-semibold text-[#1A1A1A]">Created</div>
+                      <div className="font-normal text-[#1A1A1A]">Created</div>
                       <div className="text-[#6B6B6B]">{format(new Date(selectedTask.createdAt), 'MMM d, yyyy')}</div>
                     </div>
                   </div>
@@ -289,7 +289,7 @@ export default function Tasks() {
                       <Clock className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-semibold text-[#1A1A1A]">Due Date</div>
+                      <div className="font-normal text-[#1A1A1A]">Due Date</div>
                       <div className="text-[#6B6B6B]">{selectedTask.dueDate ? format(new Date(selectedTask.dueDate), 'MMM d, yyyy') : 'No due date'}</div>
                     </div>
                   </div>

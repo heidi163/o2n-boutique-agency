@@ -51,7 +51,7 @@ export default function Projects() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-bold text-[#154A37] leading-tight mb-2 font-display">Projects</h1>
+          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Projects</h1>
           <p className="text-[#6B6B6B]">Manage ongoing projects and track their progress.</p>
         </div>
         <div className="flex gap-4">
@@ -103,15 +103,15 @@ export default function Projects() {
             {projects?.map((project: any) => (
               <div key={project.id} className="bg-white rounded-[2rem] p-6 border border-[#E8E2D9] hover:border-[#C8BFB0] transition-colors cursor-pointer group">
                 <div className="flex justify-between items-start mb-4">
-                  <div className={`px-3 py-1 rounded-full text-xs font-bold ${statusColors[project.status]}`}>
+                  <div className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[project.status]}`}>
                     {project.status.replace('_', ' ')}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-1 group-hover:text-[#154A37] transition-colors">{project.name}</h3>
+                <h3 className="text-xl font-medium text-[#1A1A1A] mb-1 group-hover:text-[#154A37] transition-colors">{project.name}</h3>
                 <p className="text-[#6B6B6B] text-sm mb-6">{project.client?.name}</p>
                 
                 <div className="space-y-2 mb-6">
-                  <div className="flex justify-between text-xs font-semibold text-[#6B6B6B]">
+                  <div className="flex justify-between text-xs font-normal text-[#6B6B6B]">
                     <span>Progress</span>
                     <span>{project.progress || 0}%</span>
                   </div>
@@ -127,7 +127,7 @@ export default function Projects() {
                   </div>
                   <div className="flex -space-x-2">
                     {/* Placeholder for team avatars */}
-                    <div className="w-8 h-8 rounded-full bg-[#E8F2EE] border-2 border-white flex items-center justify-center text-[10px] font-bold text-[#154A37]">O2</div>
+                    <div className="w-8 h-8 rounded-full bg-[#E8F2EE] border-2 border-white flex items-center justify-center text-[10px] font-medium text-[#154A37]">O2</div>
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function Projects() {
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Project Name</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Project Name</label>
               <Input 
                 value={formData.name} 
                 onChange={e => setFormData({...formData, name: e.target.value})} 
@@ -157,7 +157,7 @@ export default function Projects() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Client</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Client</label>
               <select 
                 value={formData.clientId}
                 onChange={e => setFormData({...formData, clientId: e.target.value})}
@@ -171,7 +171,7 @@ export default function Projects() {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[#1A1A1A]">Description</label>
+              <label className="text-sm font-normal text-[#1A1A1A]">Description</label>
               <Input 
                 value={formData.description} 
                 onChange={e => setFormData({...formData, description: e.target.value})} 
