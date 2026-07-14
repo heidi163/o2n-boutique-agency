@@ -1,94 +1,87 @@
 import { relations } from 'drizzle-orm';
-import { integer, pgTable, serial, text, timestamp, boolean, json, pgEnum } from 'drizzle-orm/pg-core';
+import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
 
-export const userRoleEnum = pgEnum('user_role', ['ADMIN', 'MEMBER']);
-export const userStatusEnum = pgEnum('user_status', ['AVAILABLE', 'BUSY', 'ON_LEAVE']);
-export const projectStatusEnum = pgEnum('project_status', ['PLANNING', 'ACTIVE', 'ON_HOLD', 'COMPLETED', 'CANCELLED']);
-export const taskPriorityEnum = pgEnum('task_priority', ['LOW', 'MEDIUM', 'HIGH', 'URGENT']);
-export const taskStatusEnum = pgEnum('task_status', ['TODO', 'IN_PROGRESS', 'IN_REVIEW', 'DONE', 'CANCELLED']);
-export const notificationTypeEnum = pgEnum('notification_type', ['ASSIGNED', 'DEADLINE_SOON', 'STATUS_CHANGED', 'MENTION']);
-
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
+export const users = sqliteTable('users', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   passwordHash: text('password_hash').notNull(),
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
-  role: userRoleEnum('role').default('MEMBER').notNull(),
+  role: text('role').default('MEMBER').notNull(), // 'ADMIN' or 'MEMBER'
   avatarUrl: text('avatar_url'),
-  status: userStatusEnum('status').default('AVAILABLE').notNull(),
+  status: text('status').default('AVAILABLE').notNull(), // 'AVAILABLE', 'BUSY', 'ON_LEAVE'
   jobTitle: text('job_title'),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const clients = pgTable('clients', {
-  id: serial('id').primaryKey(),
+export const clients = sqliteTable('clients', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   name: text('name').notNull(),
   email: text('email').notNull(),
   phone: text('phone'),
   company: text('company'),
   notes: text('notes'),
   createdBy: integer('created_by').references(() => users.id).notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const projects = pgTable('projects', {
-  id: serial('id').primaryKey(),
+export const projects = sqliteTable('projects', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   name: text('name').notNull(),
   description: text('description'),
   clientId: integer('client_id').references(() => clients.id).notNull(),
-  status: projectStatusEnum('status').default('PLANNING').notNull(),
+  status: text('status').default('PLANNING').notNull(), // 'PLANNING', 'ACTIVE', 'ON_HOLD', 'COMPLETED', 'CANCELLED'
   progress: integer('progress').default(0).notNull(),
-  startDate: timestamp('start_date'),
-  dueDate: timestamp('due_date'),
+  startDate: integer('start_date', { mode: 'timestamp' }),
+  dueDate: integer('due_date', { mode: 'timestamp' }),
   createdBy: integer('created_by').references(() => users.id).notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const tasks = pgTable('tasks', {
-  id: serial('id').primaryKey(),
+export const tasks = sqliteTable('tasks', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   title: text('title').notNull(),
   description: text('description'),
   projectId: integer('project_id').references(() => projects.id).notNull(),
   clientId: integer('client_id').references(() => clients.id),
   assigneeId: integer('assignee_id').references(() => users.id),
   createdBy: integer('created_by').references(() => users.id).notNull(),
-  priority: taskPriorityEnum('priority').default('MEDIUM').notNull(),
-  status: taskStatusEnum('status').default('TODO').notNull(),
-  dueDate: timestamp('due_date'),
+  priority: text('priority').default('MEDIUM').notNull(), // 'LOW', 'MEDIUM', 'HIGH', 'URGENT'
+  status: text('status').default('TODO').notNull(), // 'TODO', 'IN_PROGRESS', 'IN_REVIEW', 'DONE', 'CANCELLED'
+  dueDate: integer('due_date', { mode: 'timestamp' }),
   estimatedHours: integer('estimated_hours'),
   actualHours: integer('actual_hours'),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const subTasks = pgTable('sub_tasks', {
-  id: serial('id').primaryKey(),
+export const subTasks = sqliteTable('sub_tasks', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   taskId: integer('task_id').references(() => tasks.id).notNull(),
   title: text('title').notNull(),
-  isCompleted: boolean('is_completed').default(false).notNull(),
+  isCompleted: integer('is_completed', { mode: 'boolean' }).default(false).notNull(),
   order: integer('order').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const activityLogs = pgTable('activity_logs', {
-  id: serial('id').primaryKey(),
+export const activityLogs = sqliteTable('activity_logs', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   entityType: text('entity_type').notNull(),
   entityId: integer('entity_id').notNull(),
   action: text('action').notNull(),
   changedBy: integer('changed_by').references(() => users.id).notNull(),
-  changes: json('changes'),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  changes: text('changes', { mode: 'json' }),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
-export const notifications = pgTable('notifications', {
-  id: serial('id').primaryKey(),
+export const notifications = sqliteTable('notifications', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
   userId: integer('user_id').references(() => users.id).notNull(),
-  type: notificationTypeEnum('type').notNull(),
+  type: text('type').notNull(), // 'ASSIGNED', 'DEADLINE_SOON', 'STATUS_CHANGED', 'MENTION'
   message: text('message').notNull(),
-  isRead: boolean('is_read').default(false).notNull(),
+  isRead: integer('is_read', { mode: 'boolean' }).default(false).notNull(),
   entityType: text('entity_type').notNull(),
   entityId: integer('entity_id').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
 });
 
 // Relations

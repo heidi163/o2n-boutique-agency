@@ -32,7 +32,7 @@ export default function Dashboard() {
       {/* Top Header */}
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-bold text-[#154A37] leading-tight mb-2 font-display">Dashboard</h1>
+          <h1 className="text-4xl font-semibold text-[#154A37] leading-tight mb-2 font-display">Dashboard</h1>
           <p className="text-[#6B6B6B]">
             Welcome back, {user?.name?.split(' ')[0]}. You have <span className="text-[#154A37] font-semibold">{tasks.filter((t: any) => t.status !== 'DONE').length} tasks</span> remaining.
           </p>
@@ -51,21 +51,21 @@ export default function Dashboard() {
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm">
               <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-semibold">Total Tasks</p>
-              <h3 className="text-3xl font-bold text-[#154A37]">{totalTasks}</h3>
+              <h3 className="text-3xl font-semibold text-[#154A37]">{totalTasks}</h3>
             </div>
             <div className="bg-[#154A37] p-6 rounded-3xl border border-[#154A37] shadow-sm">
               <p className="text-xs uppercase tracking-widest text-white/70 mb-2 font-semibold">Completed</p>
-              <h3 className="text-3xl font-bold text-white">{completionRate}%</h3>
+              <h3 className="text-3xl font-semibold text-white">{completionRate}%</h3>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-[#E8E2D9] shadow-sm">
               <p className="text-xs uppercase tracking-widest text-[#6B6B6B] mb-2 font-semibold">Active Projects</p>
-              <h3 className="text-3xl font-bold text-[#154A37]">{activeProjects}</h3>
+              <h3 className="text-3xl font-semibold text-[#154A37]">{activeProjects}</h3>
             </div>
           </div>
 
           <div className="bg-white rounded-[2.5rem] border border-[#E8E2D9] p-8">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold font-display">Active Projects</h2>
+              <h2 className="text-xl font-semibold font-display">Active Projects</h2>
               <button className="text-sm font-semibold text-[#154A37] underline underline-offset-4">View All</button>
             </div>
             
@@ -79,7 +79,7 @@ export default function Dashboard() {
                     {project.name.charAt(0)}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-lg text-[#1A1A1A]">{project.name}</h4>
+                    <h4 className="font-semibold text-lg text-[#1A1A1A]">{project.name}</h4>
                     <p className="text-sm text-[#6B6B6B]">Client: {project.client?.name || 'Unknown'}</p>
                   </div>
                   <div className="text-right">
@@ -99,7 +99,7 @@ export default function Dashboard() {
         {/* Right Activity Feed */}
         <div className="lg:col-span-1 flex flex-col gap-8">
           <div className="bg-[#F5F1EA] rounded-[2.5rem] p-8 flex-1">
-            <h2 className="text-xl font-bold mb-6 font-display">Live Activity</h2>
+            <h2 className="text-lg font-semibold mb-6 font-display">Live Activity</h2>
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="w-2 h-2 mt-2 rounded-full bg-[#5B8DEF]"></div>
