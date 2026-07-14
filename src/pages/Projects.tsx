@@ -51,7 +51,7 @@ export default function Projects() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Projects</h1>
+          <h1 className="text-xl tracking-tight tracking-tight font-normal text-[#154A37] leading-tight mb-2 ">Projects</h1>
           <p className="text-[#6B6B6B]">Manage ongoing projects and track their progress.</p>
         </div>
         <div className="flex gap-4">
@@ -103,11 +103,11 @@ export default function Projects() {
             {projects?.map((project: any) => (
               <div key={project.id} className="bg-white rounded-[2rem] p-6 border border-[#E8E2D9] hover:border-[#C8BFB0] transition-colors cursor-pointer group">
                 <div className="flex justify-between items-start mb-4">
-                  <div className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[project.status]}`}>
+                  <div className={`px-3 py-1 rounded-full text-xs font-normal ${statusColors[project.status]}`}>
                     {project.status.replace('_', ' ')}
                   </div>
                 </div>
-                <h3 className="text-xl font-medium text-[#1A1A1A] mb-1 group-hover:text-[#154A37] transition-colors">{project.name}</h3>
+                <h3 className="text-xl font-normal text-[#1A1A1A] mb-1 group-hover:text-[#154A37] transition-colors">{project.name}</h3>
                 <p className="text-[#6B6B6B] text-sm mb-6">{project.client?.name}</p>
                 
                 <div className="space-y-2 mb-6">
@@ -121,13 +121,13 @@ export default function Projects() {
                 </div>
 
                 <div className="flex justify-between items-center pt-4 border-t border-[#E8E2D9]">
-                  <div className="flex items-center text-xs text-[#6B6B6B] font-medium">
+                  <div className="flex items-center text-xs text-[#6B6B6B] font-normal">
                     <Calendar className="w-3 h-3 mr-1" />
                     {project.dueDate ? format(new Date(project.dueDate), 'MMM d, yyyy') : 'No due date'}
                   </div>
                   <div className="flex -space-x-2">
                     {/* Placeholder for team avatars */}
-                    <div className="w-8 h-8 rounded-full bg-[#E8F2EE] border-2 border-white flex items-center justify-center text-[10px] font-medium text-[#154A37]">O2</div>
+                    <div className="w-8 h-8 rounded-full bg-[#E8F2EE] border-2 border-white flex items-center justify-center text-[10px] font-normal text-[#154A37]">O2</div>
                   </div>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function Projects() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[425px] bg-white rounded-3xl p-6 border-[#E8E2D9]">
           <DialogHeader>
-            <DialogTitle className="font-display text-2xl text-[#154A37]">Create Project</DialogTitle>
+            <DialogTitle className=" text-lg tracking-tight text-[#154A37]">Create Project</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">

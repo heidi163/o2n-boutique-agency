@@ -113,7 +113,7 @@ export default function VoiceRecorderFAB() {
             <Mic className="w-5 h-5 text-white" />
           )}
         </div>
-        <span className="text-sm font-medium w-28 text-left flex items-center">
+        <span className="text-sm font-normal w-28 text-left flex items-center">
           {isProcessing ? 'Processing...' : isRecording ? (
             <span className="flex items-center gap-2">
               Listening

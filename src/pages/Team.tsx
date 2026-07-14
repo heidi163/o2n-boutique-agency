@@ -24,7 +24,7 @@ export default function Team() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Team</h1>
+          <h1 className="text-xl tracking-tight tracking-tight font-normal text-[#154A37] leading-tight mb-2 ">Team</h1>
           <p className="text-[#6B6B6B]">Manage your agency team, availability, and performance.</p>
         </div>
         <div className="flex gap-4">
@@ -42,8 +42,8 @@ export default function Team() {
               <Users className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-3xl font-medium text-[#1A1A1A] font-display">24</div>
-              <div className="text-sm text-[#6B6B6B] font-medium">Total Members</div>
+              <div className="text-xl tracking-tight font-normal text-[#1A1A1A] ">24</div>
+              <div className="text-sm text-[#6B6B6B] font-normal">Total Members</div>
             </div>
           </div>
         </div>
@@ -54,8 +54,8 @@ export default function Team() {
               <TrendingUp className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-3xl font-medium text-[#1A1A1A] font-display">85%</div>
-              <div className="text-sm text-[#6B6B6B] font-medium">Avg. Utilization</div>
+              <div className="text-xl tracking-tight font-normal text-[#1A1A1A] ">85%</div>
+              <div className="text-sm text-[#6B6B6B] font-normal">Avg. Utilization</div>
             </div>
           </div>
         </div>
@@ -66,8 +66,8 @@ export default function Team() {
               <Clock className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-3xl font-medium text-[#1A1A1A] font-display">120h</div>
-              <div className="text-sm text-[#6B6B6B] font-medium">Logged This Week</div>
+              <div className="text-xl tracking-tight font-normal text-[#1A1A1A] ">120h</div>
+              <div className="text-sm text-[#6B6B6B] font-normal">Logged This Week</div>
             </div>
           </div>
         </div>
@@ -90,15 +90,15 @@ export default function Team() {
           ) : users?.map((user: any) => (
             <div key={user.id} className="group bg-[#FDFBF7] rounded-[2rem] p-6 border border-[#E8E2D9] hover:border-[#C8BFB0] transition-colors flex items-start gap-4">
               <div className="relative">
-                <div className="w-14 h-14 rounded-full bg-[#E8F2EE] text-[#154A37] flex items-center justify-center text-xl font-medium font-display">
+                <div className="w-14 h-14 rounded-full bg-[#E8F2EE] text-[#154A37] flex items-center justify-center text-xl font-normal ">
                   {user.name.charAt(0)}
                 </div>
                 <div className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-[#FDFBF7] ${getStatusColor(user.status)}`}></div>
               </div>
               <div className="flex-1">
-                <h3 className="font-medium text-lg text-[#1A1A1A] mb-1">{user.name}</h3>
+                <h3 className="font-normal text-lg text-[#1A1A1A] mb-1">{user.name}</h3>
                 <p className="text-sm text-[#6B6B6B] mb-4">{user.jobTitle || 'Team Member'}</p>
-                <div className="flex items-center gap-2 text-sm text-[#1A1A1A] font-medium">
+                <div className="flex items-center gap-2 text-sm text-[#1A1A1A] font-normal">
                   <Calendar className="w-4 h-4 text-[#A8A8A8]" />
                   <span>{user.status === 'AVAILABLE' ? 'Available' : user.status === 'BUSY' ? 'Busy' : 'On Leave'}</span>
                 </div>

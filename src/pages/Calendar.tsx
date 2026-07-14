@@ -19,7 +19,7 @@ export default function Calendar() {
     return (
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-4xl font-medium text-[#154A37] font-display">
+          <h1 className="text-lg tracking-tight tracking-tight font-normal text-[#154A37] ">
             {format(currentMonth, 'MMMM yyyy')}
           </h1>
           <p className="text-[#6B6B6B] mt-1">Manage your project deadlines and schedules.</p>
@@ -28,7 +28,7 @@ export default function Calendar() {
           <button onClick={prevMonth} className="p-3 bg-white border border-[#E8E2D9] rounded-full hover:bg-gray-50 text-[#154A37] transition-colors shadow-sm">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={() => setCurrentMonth(new Date())} className="px-6 py-2 bg-[#F5F1EA] text-[#154A37] rounded-full font-medium text-sm hover:bg-[#E8E2D9] transition-colors">
+          <button onClick={() => setCurrentMonth(new Date())} className="px-6 py-2 bg-[#F5F1EA] text-[#154A37] rounded-full font-normal text-sm hover:bg-[#E8E2D9] transition-colors">
             Today
           </button>
           <button onClick={nextMonth} className="p-3 bg-white border border-[#E8E2D9] rounded-full hover:bg-gray-50 text-[#154A37] transition-colors shadow-sm">
@@ -46,7 +46,7 @@ export default function Calendar() {
 
     for (let i = 0; i < 7; i++) {
       days.push(
-        <div key={i} className="text-center font-medium text-[#6B6B6B] text-xs uppercase tracking-widest py-4 bg-[#FDFBF7] border-b border-[#E8E2D9]">
+        <div key={i} className="text-center font-normal text-[#6B6B6B] text-xs uppercase tracking-widest py-4 bg-[#FDFBF7] border-b border-[#E8E2D9]">
           {format(addDays(startDate, i), dateFormat)}
         </div>
       );
@@ -89,7 +89,7 @@ export default function Calendar() {
             className={`min-h-[120px] p-2 border-r border-b border-[#E8E2D9] transition-colors ${!isSameMonth(day, monthStart) ? 'bg-[#FDFBF7]/50 text-[#A8A8A8]' : isSameDay(day, new Date()) ? 'bg-[#E8F2EE]/30' : 'bg-white hover:bg-[#FDFBF7]'}`}
           >
             <div className={`flex justify-end mb-1`}>
-              <span className={`w-7 h-7 flex items-center justify-center rounded-full text-sm ${isSameDay(day, new Date()) ? 'bg-[#154A37] text-white font-medium' : 'font-medium'}`}>
+              <span className={`w-7 h-7 flex items-center justify-center rounded-full text-sm ${isSameDay(day, new Date()) ? 'bg-[#154A37] text-white font-normal' : 'font-normal'}`}>
                 {formattedDate}
               </span>
             </div>

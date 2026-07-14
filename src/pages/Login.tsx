@@ -40,11 +40,11 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-[#FDFBF7] p-4">
       <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-sm border border-[#E8E2D9]">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-12 h-12 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-medium text-2xl">O2</div>
-          <span className="text-3xl font-medium tracking-tight text-[#154A37] font-display">O2N</span>
+          <div className="w-12 h-12 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-normal text-lg tracking-tight">O2</div>
+          <span className="text-xl tracking-tight font-normal tracking-tight text-[#154A37] ">O2N</span>
         </div>
         
-        <h1 className="text-2xl font-medium text-[#1A1A1A] mb-2 font-display text-center">
+        <h1 className="text-lg tracking-tight font-normal text-[#1A1A1A] mb-2  text-center">
           {isLogin ? 'Welcome back' : 'Create an account'}
         </h1>
         <p className="text-[#6B6B6B] text-center text-sm mb-8">
@@ -95,7 +95,7 @@ export default function Login() {
           <Button 
             type="submit" 
             disabled={loading} 
-            className="w-full rounded-full h-12 bg-[#154A37] hover:bg-[#1E6B50] text-white font-medium text-base mt-4"
+            className="w-full rounded-full h-12 bg-[#154A37] hover:bg-[#1E6B50] text-white font-normal text-base mt-4"
           >
             {loading ? 'Please wait...' : (isLogin ? 'Sign In' : 'Create Account')}
           </Button>
@@ -105,7 +105,7 @@ export default function Login() {
           <button 
             type="button" 
             onClick={() => setIsLogin(!isLogin)} 
-            className="text-sm text-[#6B6B6B] hover:text-[#154A37] font-medium transition-colors"
+            className="text-sm text-[#6B6B6B] hover:text-[#154A37] font-normal transition-colors"
           >
             {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
           </button>

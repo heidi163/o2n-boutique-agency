@@ -45,7 +45,7 @@ export default function Clients() {
     <div className="flex flex-col h-full">
       <header className="flex justify-between items-start mb-10">
         <div>
-          <h1 className="text-5xl font-medium text-[#154A37] leading-tight mb-2 font-display">Clients</h1>
+          <h1 className="text-xl tracking-tight tracking-tight font-normal text-[#154A37] leading-tight mb-2 ">Clients</h1>
           <p className="text-[#6B6B6B]">Manage your agency's clients and their contact information.</p>
         </div>
         <div className="flex gap-4">
@@ -98,7 +98,7 @@ export default function Clients() {
                   <TableRow key={client.id} className="border-[#E8E2D9] hover:bg-[#FDFBF7] cursor-pointer">
                     <TableCell className="font-normal text-[#1A1A1A] py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#E8F2EE] text-[#154A37] rounded-full flex items-center justify-center font-medium">
+                        <div className="w-10 h-10 bg-[#E8F2EE] text-[#154A37] rounded-full flex items-center justify-center font-normal">
                           {client.name.charAt(0)}
                         </div>
                         {client.name}
@@ -130,7 +130,7 @@ export default function Clients() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[425px] bg-white rounded-3xl p-6 border-[#E8E2D9]">
           <DialogHeader>
-            <DialogTitle className="font-display text-2xl text-[#154A37]">Add New Client</DialogTitle>
+            <DialogTitle className=" text-lg tracking-tight text-[#154A37]">Add New Client</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">

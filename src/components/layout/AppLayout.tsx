@@ -25,71 +25,71 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       {/* Sidebar Navigation */}
       <aside className="w-64 border-r border-[#E8E2D9] flex flex-col p-8 bg-white">
         <div className="flex items-center gap-3 mb-12">
-          <div className="w-10 h-10 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-medium text-xl">O2</div>
-          <span className="text-2xl font-medium tracking-tight text-[#154A37] font-display">O2N</span>
+          <div className="w-10 h-10 bg-[#154A37] rounded-xl flex items-center justify-center text-white font-normal text-xl">O2</div>
+          <span className="text-lg tracking-tight font-normal tracking-tight text-[#154A37] ">O2N</span>
         </div>
         
         <nav className="flex-1 space-y-1">
           <NavLink 
             to="/" 
             end
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <LayoutDashboard className="w-5 h-5" />
             Dashboard
           </NavLink>
           <NavLink 
             to="/clients" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <Users className="w-5 h-5" />
             Clients
           </NavLink>
           <NavLink 
             to="/projects" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <FolderKanban className="w-5 h-5" />
             Projects
           </NavLink>
           <NavLink 
             to="/tasks" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <CheckSquare className="w-5 h-5" />
             Tasks
           </NavLink>
           <NavLink 
             to="/team" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <Users className="w-5 h-5" />
             Team
           </NavLink>
           <NavLink 
             to="/calendar" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <CalendarIcon className="w-5 h-5" />
             Calendar
           </NavLink>
           <NavLink 
             to="/performance" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <TrendingUp className="w-5 h-5" />
             Performance
           </NavLink>
           <NavLink 
             to="/activity" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <Activity className="w-5 h-5" />
             Activity Log
           </NavLink>
           <NavLink 
             to="/settings" 
-            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-medium transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
+            className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-full font-normal transition-colors ${isActive ? 'bg-[#E8F2EE] text-[#154A37]' : 'text-[#6B6B6B] hover:text-[#154A37]'}`}
           >
             <Settings className="w-5 h-5" />
             Settings
@@ -98,7 +98,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
         <div className="mt-auto pt-4 border-t border-[#E8E2D9]">
           <div className="flex items-center gap-3 p-4 bg-[#F5F1EA] rounded-3xl mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#154A37] border-2 border-white shadow-sm flex items-center justify-center text-white font-medium text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#154A37] border-2 border-white shadow-sm flex items-center justify-center text-white font-normal text-sm">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             <div className="flex flex-col flex-1 overflow-hidden">
@@ -108,7 +108,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           </div>
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-3 px-4 py-2 w-full text-left text-[#E8756A] hover:bg-red-50 rounded-full transition-colors text-sm font-medium"
+            className="flex items-center gap-3 px-4 py-2 w-full text-left text-[#E8756A] hover:bg-red-50 rounded-full transition-colors text-sm font-normal"
           >
             <LogOut className="w-4 h-4" />
             Sign Out
