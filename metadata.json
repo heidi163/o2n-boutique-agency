@@ -1,0 +1,6 @@
+{
+  "name": "O2N Boutique Agency",
+  "description": "Warm boutique agency operating system with Kanban board and Voice AI task creation.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
